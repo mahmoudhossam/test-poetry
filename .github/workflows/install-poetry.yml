@@ -1,0 +1,22 @@
+name: Test Install Poetry
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+
+  build:
+  
+    runs-on: ubuntu-latest
+    env:
+      POETRY_HOME: /usr
+      
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
